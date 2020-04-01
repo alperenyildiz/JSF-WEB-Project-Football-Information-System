@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="musabaka-form">
+        <div class="form-group">
+            <div class="form-group">
+                <h:inputHidden value="#{musabakaController.musabaka.musabaka_id}"/> 
+                <label for="selectTakim1">Ev Sahibi(*)</label>
+                <h:selectOneMenu styleClass="custom-select" id="selectTakim1" value="#{musabakaController.musabaka.takim1}" converter="takimConverter" validator="#{validator.validateBos}">
+                    <f:selectItems value="#{musabakaController.takimController.tlist}" var="takim1" itemValue="#{takim}" itemLabel="#{takim1.isim}"/>
+                </h:selectOneMenu>
+                <label for="inputEvGol">Ev Sahibi Takım Gol Sayısı(*)</label>
+                <h:inputText styleClass="form-control" value="#{musabakaController.musabaka.takim1_gol}" validator="#{validator.validateBos}"/>
+                <label for="selectTakim2">Deplasman(*)</label>
+                <h:selectOneMenu styleClass="custom-select" id="selectTakim2" value="#{musabakaController.musabaka.takim2}" converter="takimConverter" validator="#{validator.validateBos}">
+                    <f:selectItems value="#{musabakaController.takimController.tlist}" var="takim2" itemValue="#{takim}" itemLabel="#{takim2.isim}"/>
+                </h:selectOneMenu>
+                <label for="inputDeplasmanGol">Deplasman Takım Gol Sayısı(*)</label>
+                <h:inputText styleClass="form-control" value="#{musabakaController.musabaka.takim2_gol}" validator="#{validator.validateBos}"/>                            
+                <label for="selectLig">Lig(*)</label>
+                <h:selectOneMenu styleClass="custom-select" id="selectLig" value="#{musabakaController.musabaka.lig}" converter="ligConverter" >
+                    <f:selectItems value="#{musabakaController.ligController.llist}" var="lig" itemValue="#{lig}" itemLabel="#{lig.lig_adi}"/>
+                </h:selectOneMenu>
+                <label for="selectHakem">Hakem(*)</label>
+                <h:selectOneMenu styleClass="custom-select" id="selectHakem" value="#{musabakaController.musabaka.hakem}" converter="hakemConverter" validator="#{validator.validateBos}">
+                    <f:selectItems value="#{musabakaController.hakemController.hlist}" var="hakem" itemValue="#{hakem}" itemLabel="#{hakem.isim}"/>
+                </h:selectOneMenu>
+            </div>
+            <div class="form-group">
+                <div class="btn-group">
+                    <h:commandButton rendered="#{musabakaController.musabaka.musabaka_id != 0}" styleClass="btn btn-info" value="Güncelle" action="#{musabakaController.update}">                       
+                        <f:ajax execute="musabaka-form" render="musabaka-form musabaka-table"/>
+                    </h:commandButton>    
+                    <h:commandButton rendered="#{musabakaController.musabaka.musabaka_id ==0}" styleClass="btn btn-primary" value="Ekle" action="#{musabakaController.create}">
+                        <f:ajax execute="musabaka-form" render="musabaka-form musabaka-table"/>
+                    </h:commandButton>
+                    <h:commandButton rendered="#{musabakaController.musabaka.musabaka_id != 0}" styleClass="btn btn-secondary" value="Formu Temizle" action="#{musabakaController.clearForm}">
+                        <f:ajax execute="@this" render="musabaka-form musabaka-table"/>
+                    </h:commandButton>
+                    <h:commandButton  rendered="#{musabakaController.musabaka.musabaka_id!= 0}" styleClass="btn btn-sm btn-danger" value="SİL" action="#{musabakaController.delete}">
+                        <f:ajax render="musabaka-form musabaka-table" execute="@this" />
+                    </h:commandButton>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</ui:composition>

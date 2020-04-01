@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/front_end/template/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="icerik">
+        <div class="bd-example">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <h:graphicImage value="/resources/file/avmevsimi_1.jpeg" height="900" class="d-block w-100" alt="..."/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Beşiktaşta AV MEVSİMİ</h5>
+                            <p>"Her şey çok güzel olacak"</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <h:graphicImage value="/resources/file/galatasaray.jpeg" height="900" class="d-block w-100" alt="..."/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Galatasaray Mayısta Güzel!</h5>
+                            <p>Hasretinden prangalar eskittim İnan</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <h:graphicImage value="/resources/file/fenerol.jpg" height="900" class="d-block w-100" alt="..."/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Fenerbahçenin Dev Kampanyası!</h5>
+                            <p>Fener Ol </p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+

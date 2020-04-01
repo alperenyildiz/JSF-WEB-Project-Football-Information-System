@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="ulke-table">
+        <h:dataTable styleClass="table table-striped table-hover" value="#{ulkeController.ulist}" var="ulke">
+            <h:column>
+                <f:facet name="header">ULKE ID</f:facet>
+                    #{ulke.ulke_id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">ISIM</f:facet>
+                    #{ulke.isim}
+            </h:column>
+            <h:column>
+                <f:facet name="header">NUFUS</f:facet>
+                    #{ulke.nufus}
+            </h:column>
+            <h:column>
+                <f:facet name="header">SEÇ</f:facet>
+                <h:commandButton styleClass="btn btn-sm btn-info" value="SEÇ" action="#{ulkeController.updateForm(ulke)}">
+                    <f:ajax render="ulke-table ulke-form" execute="@this" />
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</ui:composition>

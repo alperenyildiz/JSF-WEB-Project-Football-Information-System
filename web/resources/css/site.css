@@ -1,0 +1,12 @@
+/*!
+ * Start Bootstrap - Full Slider (https://startbootstrap.com/template-overviews/full-slider)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-full-slider/blob/master/LICENSE)
+ */
+
+#loginResim {
+    
+    background-image: url("resources/file/1.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+}

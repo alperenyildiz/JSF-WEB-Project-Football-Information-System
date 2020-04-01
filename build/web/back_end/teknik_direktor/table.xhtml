@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="teknik_direktor-table">
+        <h:dataTable styleClass="table table-striped table-hover" value="#{teknik_direktorController.tlist}" var="td">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                    #{td.teknik_direktor_id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">ISIM</f:facet>
+                    #{td.isim}
+            </h:column>
+            <h:column>
+                <f:facet name="header">YAS</f:facet>
+                    #{td.yas}
+            </h:column>
+            <h:column>
+                <f:facet name="header">DEGER</f:facet>
+                    #{td.deger}
+            </h:column>
+            <h:column>
+                <f:facet name="header">BASARI YUZDESI</f:facet>
+                    #{td.basari_yuzdesi}
+            </h:column>
+            <h:column>
+                <f:facet name="header">SEÇ</f:facet>
+                <h:commandButton styleClass="btn btn-sm btn-info" value="SEÇ" action="#{teknik_direktorController.updateForm(td)}">
+                    <f:ajax render="teknik_direktor-table teknik_direktor-form" execute="@this" />
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</ui:composition>

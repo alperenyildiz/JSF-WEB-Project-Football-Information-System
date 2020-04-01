@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="yetki-form">
+        <h:messages styleClass="alert alert-danger alert" />
+        <div class="form-group">
+            <div class="form-group">
+                <h:inputHidden value="#{yetkiController.yetki.yetki_id}"/> 
+                <label for="inputYetkituru">Yetki Türü(*)</label>
+                <h:inputText styleClass="form-control" value="#{yetkiController.yetki.yetki_turu}"  required="true" requiredMessage="XHTML VALİDATİON:Yetki türü boş bırakılamaz"/>
+                <h:message id="m1" for="inputYetkituru" style="color:red"/> <p></p>
+
+                <label for="kullaniciYetkileri">Yetkinin Kullanıcıları</label>
+                <h:selectManyMenu style="height: 150px" value="#{yetkiController.yetki.yetkiKullanicilari}" styleClass="custom-select" converter="kullaniciConverter">
+                    <f:selectItems value="#{yetkiController.kullaniciController.klist}" var="kullanici" itemValue="#{kullanici}" itemLabel="#{kullanici.ad_soyad}"/>
+                </h:selectManyMenu>
+            </div>
+            <div class="form-group">
+                <div class="btn-group">
+                    <h:commandButton rendered="#{yetkiController.yetki.yetki_id != 0}" styleClass="btn btn-info" value="Güncelle" action="#{yetkiController.update}">                       
+                        <f:ajax execute="yetki-form" render="yetki-table yetki-form"/>
+                    </h:commandButton>    
+                    <h:commandButton rendered="#{yetkiController.yetki.yetki_id ==0}" styleClass="btn btn-primary" value="Ekle" action="#{yetkiController.create}">
+                        <f:ajax execute="yetki-form" render="yetki-table yetki-form"/>
+                    </h:commandButton>
+                    <h:commandButton rendered="#{yetkiController.yetki.yetki_id != 0}" styleClass="btn btn-secondary" value="Formu Temizle" action="#{yetkiController.clearForm}">
+                        <f:ajax execute="@this" render="yetki-table yetki-form"/>
+                    </h:commandButton>
+                    <h:commandButton  rendered="#{yetkiController.yetki.yetki_id != 0}" styleClass="btn btn-sm btn-danger" value="SİL" action="#{yetkiController.delete}">
+                        <f:ajax render="yetki-table yetki-form" execute="@this" />
+                    </h:commandButton>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</ui:composition>
+
+
+
+
+
+

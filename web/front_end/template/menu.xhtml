@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <nav id="nav1" class="navbar navbar-expand-lg bg_dark fixed-top ">
+        <div class="container">
+            <a class="navbar-brand " href="index.xhtml"><h3> <h:outputLabel>FutbolKolik</h:outputLabel></h3></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <h:form class="collapse navbar-collapse ">
+                        <li class="nav-item active">
+                            <h5>    <h:commandLink class="nav-link " action="/index?faces-redirect=true" value="Anasayfa" /></h5>
+                        </li>
+                        <li class="nav-item">
+                            <h5>  <h:commandLink class="nav-link " action="/front_end/lig/lig?faces-redirect=true" value="Ligler" /></h5>
+                        </li>
+                        <li class="nav-item">
+                            <h5>   <h:commandLink class="nav-link" action="/front_end/takim/takim?faces-redirect=true" value="Takim" /></h5>
+                        </li>
+                        <li class="nav-item">
+                            <h5>   <h:commandLink class="nav-link" action="/front_end/oyuncu/oyuncu?faces-redirect=true" value="Oyuncu" /></h5>
+                        </li>
+                        <li class="nav-item">
+                            <h5>   <h:commandLink class="nav-link" action="/front_end/musabaka/musabaka?faces-redirect=true" value="Müsabaka" /></h5>
+                        </li>
+                        <li class="nav-item">
+                            <h5>   <h:commandLink class="nav-link" action="/front_end/haber/haber?faces-redirect=true" value="Haberler" /></h5>
+                        </li>
+                        <li class="nav-item">
+                            <h5>   <h:commandLink class="nav-link" action="/front_end/dosya/dosya?faces-redirect=true" value="İndirilebilir Medya" /></h5>
+                        </li>
+                        <li class="nav-item">
+                            <h5>   <h:commandLink class="nav-link badge-info" action="/front_end/ortak/login?faces-redirect=true" value="Giriş Yap" /></h5>
+                        </li> 
+                    </h:form>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</ui:composition>
+

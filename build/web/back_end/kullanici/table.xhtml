@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:pl="http://xmlns.jcp.org/jsf/passthrough">
+
+
+
+    <h:form id="kullanici-table">
+        <h:dataTable  styleClass="table table-striped table-hover" value="#{kullaniciController.klist}" var="kullanici">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                    #{kullanici.kullanici_id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">AD SOYAD</f:facet>
+                    #{kullanici.ad_soyad}
+            </h:column>
+            <h:column>
+                <f:facet name="header">LOGIN NAME</f:facet>
+                    #{kullanici.login_name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">SIFRE</f:facet>
+                    #{kullanici.sifre}
+            </h:column>
+            <h:column>
+                <f:facet name="header">CINSIYET</f:facet>
+                    #{kullanici.cinsiyet}
+            </h:column>
+            <h:column>
+                <f:facet name="header">YAS</f:facet>
+                    #{kullanici.yas}
+            </h:column>
+            <h:column>
+                <f:facet name="header">CEP TELEFONU</f:facet>
+                    #{kullanici.cep_telefonu}
+            </h:column>
+            <h:column>
+                <f:facet name="header">EMAIL</f:facet>
+                    #{kullanici.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">YETKİLERİ</f:facet>
+                <ul>
+                    <ui:repeat value="#{kullanici.kullaniciYetkileri}" var="yetki">
+                        <li>#{yetki.yetki_turu}</li>
+                    </ui:repeat>
+                </ul>
+            </h:column>
+            <h:column>
+                <f:facet name="header">SEÇ</f:facet>
+                <h:commandButton styleClass="btn btn-sm btn-info" value="SEÇ" action="#{kullaniciController.updateForm(kullanici)}">
+                    <f:ajax render="kullanici-table kullanici-form" execute="@this" />
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</ui:composition>

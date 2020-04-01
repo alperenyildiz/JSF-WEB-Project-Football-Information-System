@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="lig-table">
+        <h:dataTable styleClass="table table-striped table-hover" value="#{ligController.llist}" var="lig">
+            <h:column>
+                <f:facet name="header">LIG ADI</f:facet>
+                    #{lig.lig_adi}
+            </h:column>
+            <h:column>
+                <f:facet name="header">TAKIM SAYISI</f:facet>
+                    #{lig.takim_sayisi}
+            </h:column>
+            <h:column>
+                <f:facet name="header">SEZON</f:facet>
+                    #{lig.sezon}
+            </h:column>
+            <h:column>
+                <f:facet name="header">ULKE</f:facet>
+                    #{lig.ulke.isim}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</ui:composition>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="teknik_direktor-form">
+        <h:messages styleClass="alert alert-danger alert" />
+        <div class="form-group">
+            <div class="form-group">
+                <h:inputHidden value="#{teknik_direktorController.td.teknik_direktor_id}"/> 
+                <label for="inputName">İsim(*)</label>
+                <h:inputText styleClass="form-control" value="#{teknik_direktorController.td.isim}" validator="#{validator.validateBos}"/>
+                <label for="inputYas">Yas</label>
+                <h:inputText styleClass="form-control" value="#{teknik_direktorController.td.yas}"/>
+                <label for="inputDeger">Deger($)</label>
+                <h:inputText styleClass="form-control" value="#{teknik_direktorController.td.deger}"/>
+                <label for="inputBasariYuzdesi">Basari Yuzdesi</label>
+                <h:inputText styleClass="form-control" value="#{teknik_direktorController.td.basari_yuzdesi}"/>
+            </div>
+            <div class="form-group">
+                <div class="btn-group">
+                    <h:commandButton rendered="#{teknik_direktorController.td.teknik_direktor_id != 0}" styleClass="btn btn-info" value="Güncelle" action="#{teknik_direktorController.update}">                       
+                        <f:ajax execute="teknik_direktor-form" render="teknik_direktor-table teknik_direktor-form"/>
+                    </h:commandButton>    
+                    <h:commandButton rendered="#{teknik_direktorController.td.teknik_direktor_id ==0}" styleClass="btn btn-primary" value="Ekle" action="#{teknik_direktorController.create}">
+                        <f:ajax execute="teknik_direktor-form" render="teknik_direktor-table teknik_direktor-form"/>
+                    </h:commandButton>
+                    <h:commandButton rendered="#{teknik_direktorController.td.teknik_direktor_id != 0}" styleClass="btn btn-secondary" value="Formu Temizle" action="#{teknik_direktorController.clearForm}">
+                        <f:ajax execute="@this" render="teknik_direktor-table teknik_direktor-form"/>
+                    </h:commandButton>
+                    <h:commandButton  rendered="#{teknik_direktorController.td.teknik_direktor_id != 0}" styleClass="btn btn-sm btn-danger" value="SİL" action="#{teknik_direktorController.delete}">
+                        <f:ajax render="teknik_direktor-table teknik_direktor-form" execute="@this" />
+                    </h:commandButton>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</ui:composition>

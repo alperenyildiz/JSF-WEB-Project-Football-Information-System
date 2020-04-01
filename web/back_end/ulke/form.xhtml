@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:form id="ulke-form">
+        <h:messages styleClass="alert alert-danger alert" />
+        <div class="form-group">
+            <h:inputHidden value="#{ulkeController.ulke.ulke_id}"/> 
+            <label for="inputName">İsim(*)</label>
+            <h:inputText styleClass="form-control" value="#{ulkeController.ulke.isim}" validator="#{validator.validateBos}"/>
+            <label for="inputNufus">Nüfus</label>
+            <h:inputText styleClass="form-control" value="#{ulkeController.ulke.nufus}"/>
+        </div>
+        <div class="form-group">
+            <div class="btn-group">
+                <h:commandButton rendered="#{ulkeController.ulke.ulke_id != 0}" styleClass="btn btn-info" value="Güncelle" action="#{ulkeController.update}">                       
+                    <!--rendered yaparken neden null olmadı? 0 yapınca çalıştı -->
+                    <f:ajax execute="ulke-form" render="ulke-form ulke-table"/>
+                </h:commandButton>    
+                <h:commandButton rendered="#{ulkeController.ulke.ulke_id ==0}" styleClass="btn btn-primary" value="Ekle" action="#{ulkeController.create}">
+                    <f:ajax execute="ulke-form" render="ulke-form ulke-table"/>
+                </h:commandButton>
+                <h:commandButton rendered="#{ulkeController.ulke.ulke_id != 0}" styleClass="btn btn-secondary" value="Formu Temizle" action="#{ulkeController.clearForm}">
+                    <f:ajax execute="@this" render="ulke-form ulke-table"/>
+                </h:commandButton>
+                <h:commandButton  rendered="#{ulkeController.ulke.ulke_id != 0}" styleClass="btn btn-sm btn-danger" value="SİL" action="#{ulkeController.delete}">
+                    <f:ajax render="ulke-table ulke-form" execute="@this" />
+                </h:commandButton>
+            </div>
+        </div>
+    </h:form>
+</ui:composition>

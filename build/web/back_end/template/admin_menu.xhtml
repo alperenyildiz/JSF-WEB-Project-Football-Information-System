@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <h:form>
+            <h:commandLink styleClass="navbar-brand" action="/index?faces-redirect=true" >
+                <i class="fa fa-fw fa-home"></i>
+                <span class="nav-link-text">FUTBOLKOLİK</span>
+            </h:commandLink>
+        </h:form>
+
+        <button  id="btn_admin" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <h:form id="form_admin" class="navbar-nav navbar-sidenav">
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Anasayfa">
+                        <h:commandLink styleClass="nav-link" action="/back_end/admin?faces-redirect=true" >
+                            <i class="fa fa-fw fa-home"></i>
+                            <span class="nav-link-text">Anasayfa</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Kullanıcı">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/kullanici/kullanici?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-users"></i>
+                            <span class="nav-link-text">Kullanıcılar</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Yetkiler">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/yetki/yetki?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-unlock-alt"></i>
+                            <span class="nav-link-text">Yetkiler</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ülke">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/ulke/ulke?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-globe"></i>
+                            <span class="nav-link-text">Ülkeler</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Stadyum">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/stadyum/stadyum?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-location-arrow"></i>
+                            <span class="nav-link-text">Stadyumlar</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Teknik direktor">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/teknik_direktor/teknik_direktor?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-user-secret"></i>
+                            <span class="nav-link-text">Teknik Direktörler</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Hakem">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/hakem/hakem?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-user-circle"></i>
+                            <span class="nav-link-text">Hakemler</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Lig">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/lig/lig?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-futbol-o"></i>
+                            <span class="nav-link-text">Ligler</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Takım">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/takim/takim?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-futbol-o"></i>
+                            <span class="nav-link-text">Takımlar</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Oyuncu">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/oyuncu/oyuncu?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-male"></i>
+                            <span class="nav-link-text">Oyuncular</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Musabaka">
+                        <h:commandLink rendered="#{loginController.yetkiKontrol()}" styleClass="nav-link" action="/back_end/musabaka/musabaka?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-clock-o"></i>
+                            <span class="nav-link-text">Musabakalar</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Haber">
+                        <h:commandLink  styleClass="nav-link" action="/back_end/haber/haber?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-newspaper-o"></i>
+                            <span class="nav-link-text">Haberler</span>
+                        </h:commandLink>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dosya">
+                        <h:commandLink  styleClass="nav-link" action="/back_end/dosya/dosya?faces-redirect=true">
+
+                            <i class="fa fa-fw fa-newspaper-o"></i>
+                            <span class="nav-link-text">Dosya İşlemleri</span>
+                        </h:commandLink>
+                    </li>
+                </h:form>
+            </ul>
+            <ul class="navbar-nav sidenav-toggler">
+                <li class="nav-item">
+                    <a class="nav-link text-center" id="sidenavToggler">
+                        <i class="fa fa-fw fa-angle-left"></i>
+                    </a>
+                </li>
+            </ul>
+            <h:form class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <h:commandLink styleClass="nav-link" action="/front_end/ortak/logout?faces-redirect=true" value="Çıkış" >
+                            <i class="fa fa-fw fa-sign-out"></i>
+                        </h:commandLink>
+                    </li>
+                </ul>
+            </h:form>
+        </div>
+    </nav>
+</ui:composition>
+
